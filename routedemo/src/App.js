@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Counter from './Counter/Counter';
+import { BrowserRouter } from 'react-router-dom';
+import HomePage from './HomePage/homepage';
 
 function App() {
   return (
     <div className="App">
-     <Counter/>
+    <BrowserRouter><HomePage/></BrowserRouter>
     </div>
   );
 }
