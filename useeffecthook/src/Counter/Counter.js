@@ -1,28 +1,39 @@
-import React, {useState} from 'react';
-import DisplayCounter from '../DisplayCounter/DisplayCounter';
+import React, {useState, useEffect} from 'react';
 
 const Counter = () => {
     
     let [count, setCount] = useState(0);
-    const increment = () => {
+    let [count1, setCount1] = useState(0);
+    const incrementCounterOne = () => {
         setCount(prevCount => prevCount + 1);
     }
-    const decrement = () => {
-
-        setCount(prevCount => prevCount >= 1 ?prevCount - 1 : 0);
+    const incrementCounterTwo = () => {
+        setCount1(prevCount => prevCount + 1);
     }
+
     const reset = () => {
         setCount(0);
+        setCount1(0);
     }
+    // normal useEffect
+    // useEffect(() =>{
+    //     document.title = `clicked ${count} times`
+    //     console.log('in useEffect hook');
+    // });
+    //useEffect with condition(conditional effect)
+    useEffect(() =>{
+        document.title = `clicked ${count} times`
+        console.log('in useEffect hook');
+    },[count]);
 
     return(
         <div className = "counter">
-            <DisplayCounter count = {count}/>
-            <div className = "b
-            tnContainer"></div>
-            <input type = "button" onClick = {increment} value = "increment"/>
-            <input type = "button" onClick = {decrement} value = "decrement"/>
-            <input type = "button" onClick = {reset} value = "reset"/>
+            <div className = "btnContainer"></div>
+            <button onClick = {incrementCounterOne}>clicked {count} times</button>
+            <br/>
+            <button onClick = {incrementCounterTwo}>clicked {count1} times</button>
+            <br/>
+            <button onClick = {reset}>Reset Counter</button>
         </div>
     );
 }
