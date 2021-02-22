@@ -3,7 +3,7 @@ import DisplayCounter from '../DisplayCounter/DisplayCounter';
 import useCounter from '../hooks/useCounter';
 
 const Counter = () => {
-    const [count, increment, decrement, reset] = useCounter();
+    const [count, increment, decrement, reset] = useCounter(10);
 
     return(
         <div className = "counter">
