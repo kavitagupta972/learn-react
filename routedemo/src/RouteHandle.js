@@ -37,7 +37,8 @@ function RouteHandle() {
         <Route path="/contact-us" component={ContactUs} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Registration} />
-        <Route path="/contact-list" component={ContactList} />
+        <Route path="/contact-list" render={routerProps => <ContactList {...routerProps} contacts={"DisplayContactList"}/>} />
+        {/* <Route path="/contact-list" component={ContactList} /> */}
         <Route path='/default' render={() => <Redirect to= "/" />} />
         <Route component={NoMatch} />
       </Switch>
