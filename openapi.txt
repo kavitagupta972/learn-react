@@ -1,0 +1,4 @@
+https://fortnite-api.theapinetwork.com/item/get?id=5bac8575-992e-41db-b23c-8d5646d8f586
+
+https://fortnite-api.theapinetwork.com/items/list
+https://fortnite-api.theapinetwork.com/upcoming/get
