@@ -1,4 +1,4 @@
 const NoMatch = () => {
-    <div> No page Found</div>
+    return <div> No page Found</div>
 }
 export default NoMatch;

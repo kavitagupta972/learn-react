@@ -1,6 +1,12 @@
 import React from 'react';
+import {Route, Switch, NavLink, Redirect} from 'react-router-dom'
 import HomePage from './HomePage/homepage';
 import ContactUs from './contactus/contactus';
+import AboutUs from './aboutus/aboutus';
+import Login from './login/login';
+import Registration from './registration/registration';
+import ContactList from './contactlist/contactlist';
+import NoMatch from './NoMatch/NoMatch';
 
 function RouteHandle() {
     return (<div className = "homePageContainer">
