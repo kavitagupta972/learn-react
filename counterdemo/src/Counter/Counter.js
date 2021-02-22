@@ -18,8 +18,7 @@ const Counter = () => {
     return(
         <div className = "counter">
             <DisplayCounter count = {count}/>
-            <div className = "b
-            tnContainer"></div>
+            <div className = "btnContainer"></div>
             <input type = "button" onClick = {increment} value = "increment"/>
             <input type = "button" onClick = {decrement} value = "decrement"/>
             <input type = "button" onClick = {reset} value = "reset"/>
