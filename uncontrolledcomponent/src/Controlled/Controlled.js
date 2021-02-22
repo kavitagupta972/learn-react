@@ -7,7 +7,7 @@ export default function Controlled() {
     setInputValue(e.target.value)
   }
   const handleSubmitButton = () => {
-    alert(inputValue);
+    alert(inputValue );
   };
   return (
     <div className="App">
