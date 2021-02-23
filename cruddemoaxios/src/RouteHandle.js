@@ -21,11 +21,6 @@ function RouteHandle() {
         <Route path="/" exact component={HomePage} />
         {/* <Route path="/sample" render={routerProps => <Sample {...routerProps} sampleProp={"sample"}/>} /> */}
         <Route path="/about-us" component={AboutUs} />
-        <Route path="/contact-us" component={ContactUs} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Registration} />
-        {/* <Route path="/contact-list" render={routerProps => <ContactList {...routerProps} contacts={"DisplayContactList"}/>} /> */}
-        <Route path="/contact-list" component={ContactList} />
         <Route path='/default' render={() => <Redirect to= "/" />} />
         <Route path = '/items' exact component={Items}/>
         <Route path = '/items/:id' component={ItemDetail}/>
