@@ -1,5 +1,6 @@
 import React from "react";
-import { Table, Button } from 'reactstrap';
+import { Table, Button, Modal, ModalFooter, ModalHeader, ModalBody } from 'reactstrap';
+
 import "react-table/react-table.css";
 import ApiService from "../service/ApiService";
 import './ReactTableComponent.css';
@@ -10,6 +11,7 @@ class ReactTableComponent extends React.Component {
 
     this.initialState = {
       data: [],
+      modal: false,
       first_name: "",
       last_name: "",
       email: "",
@@ -18,6 +20,64 @@ class ReactTableComponent extends React.Component {
     };
 
     this.state = this.initialState;
+    this.columns = [
+      {
+        Header: "Action",
+        accessor: "action",
+        headerStyle: { whitespace: 'unset' },
+        style: { whitespace: 'unset' },
+        Cell: ({ row, original }) => {
+
+          return (
+            <div>
+
+              <span
+                className="basicLink"
+                style={{ cursor: 'pointer', marginRight: '10px' }}
+                onClick={() => {
+                  this.getRecordById(original.id);
+                }}
+              >
+                {'Edit'}
+              </span>
+              <span
+                className="basicLink"
+                style={{ cursor: 'pointer', marginRight: '10px' }}
+                onClick={() => {
+                  this.deleteRow(original);
+                }}
+              >
+                {'Delete'}
+              </span>
+            </div>
+          );
+        }
+      },
+      {
+        Header: "ID",
+        accessor: "id",
+        headerStyle: { whitespace: 'unset' },
+        style: { whitespace: 'unset' },
+      },
+      {
+        Header: "First Name",
+        accessor: "first_name",
+        headerStyle: { whitespace: 'unset' },
+        style: { whitespace: 'unset' },
+      },
+      {
+        Header: "Last Name",
+        accessor: "last_name",
+        headerStyle: { whitespace: 'unset' },
+        style: { whitespace: 'unset' },
+      },
+      {
+        Header: "EMAIL",
+        accessor: "email",
+        headerStyle: { whitespace: 'unset' },
+        style: { whitespace: 'unset' }
+      },
+    ];
   }
 
 
@@ -103,11 +163,15 @@ class ReactTableComponent extends React.Component {
 
         <div class="jumbotron">
           <h1 class="display-4">React - Integration with Axios !</h1>
+          {/* <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> */}
           <hr class="my-4" />
-
+          {/* <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> */}
+          {/* <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </p> */}
         </div>
-        <h2 className="react-table-component">Employee Details</h2>
-        <form class="form-inline" style={{ paddingBottom: 20 }}>
+        <h2 className="App">Employee Details</h2>
+        <form class="form-inline" action="/action_page.php" style={{ paddingBottom: 20 }}>
           <label for="email" style={{ margin: 20 }}>First Name:</label>
           <input type="text" class="form-control" id="first_name" value={this.state.first_name} onChange={this.handleChange} />
           <label for="email">Last Name:</label>
@@ -121,14 +185,20 @@ class ReactTableComponent extends React.Component {
 
           </button>
         </form>
-        
+        {/* <button className="btn btn-danger" style={{ width: '100px', marginLeft: '1200px' }} >Add Record</button> */}
+        {/* <ReactTable
+          data={data}
+          defaultPageSize={10}
+          columns={this.columns}
+          className="-striped -highlight"
+        /> */}
 
 {/* <pre>{JSON.stringify(data)}</pre> */}
 
     <Table striped>
       <thead>
         <tr>
-          <th>id</th>
+          <th>#</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Username</th>
@@ -136,7 +206,7 @@ class ReactTableComponent extends React.Component {
       </thead>
       <tbody>
         {data.map((item) => <tr>
-          <td scope="row">{item.id}</td>
+          <th scope="row">{item.id}</th>
           <td>{item.first_name}</td>
           <td>{item.last_name}</td>
           <td>{item.email}</td>
