@@ -1,0 +1,40 @@
+{
+  "employees" : [
+      {
+          "id" : "1",
+          "first_name" : "Kavita",
+          "last_name" : "Gupta",
+          "email" : "kavitagupta972@gmail.com"
+      },
+      {
+          "id" : "2",
+          "first_name" : "Anubhav",
+          "last_name" : "Gupta",
+          "email" : "Anubhavgupta9721@gmail.com"
+      },
+      {
+          "id" : "3",
+          "first_name" : "Reena",
+          "last_name" : "Gupta",
+          "email" : "Reenagupta972@gmail.com"
+      },
+      {
+        "id" : "4",
+        "first_name" : "Pallavi",
+        "last_name" : "Gupta",
+        "email" : "Pallavigupta972@gmail.com"
+    },
+    {
+        "id" : "5",
+        "first_name" : "Preethi",
+        "last_name" : "Gupta1",
+        "email" : "Preethigupta9721@gmail.com"
+    },
+    {
+        "id" : "6",
+        "first_name" : "Jagadish",
+        "last_name" : "Gupta",
+        "email" : "Jagadishgupta972@gmail.com"
+    }
+  ]
+}
