@@ -1,14 +1,13 @@
-import React from 'react';
 import './App.css';
-// import TableComponent from './tablecomponent/TableComponent';
-import ReactTableComponent from './components/ReactTableComponent';
+import "bootstrap/dist/css/bootstrap.min.css";
+import EmployeeList from './EmployeeList/EmployeeList';
 
 function App() {
   return (
-    <React.Fragment>
-
-      <ReactTableComponent />
-    </React.Fragment>
+    <div className="App">
+      <h1> React Integration With Axios !!!</h1>
+      <EmployeeList/>
+    </div>
   );
 }
 
