@@ -9,6 +9,7 @@ function EmployeeList(){
     let [firstName, setFirstName] = useState("");
     let [lastName, setLastName] = useState("");
     let [email, setEmail] = useState("");
+    let [isEdit, setIsEdit] = useState(false);
 
     useEffect(() =>{
         getEmployeesList();
@@ -18,6 +19,26 @@ function EmployeeList(){
         const result = await axios.get(url);
         console.log(result.data);
         setEmployees(result.data);
+    }
+
+    let getEmployeeById = (empId = 0) => {
+            axios.get(url+empId).then((res) =>{
+                const {id,first_name,last_name, email} = res.data;
+                console.log(res);
+                 setId(id);
+                 setFirstName(first_name);
+                 setLastName(last_name);
+                 setEmail(email);
+            })
+    }
+
+    function editEmployee(){
+        axios.put(url+id, {
+            id : id,
+            first_name : firstName,
+            last_name : lastName,
+            email :email
+        })
     }
 
     //Add record
@@ -45,6 +66,7 @@ function EmployeeList(){
                 <input type = "text" 
                 id = "id" 
                 value = {id}
+                disabled = {isEdit ? "disabled" : ""}
                 onChange = {event => setId(event.target.value)}/>
 
                 <label id="first_name">First Name:</label>
@@ -64,7 +86,7 @@ function EmployeeList(){
                 id = "email" 
                 value = {email}
                 onChange = {event => setEmail(event.target.value)}/>
-                <button onClick = {addEmployee}>Add</button>
+                <button onClick = {() => (isEdit ? editEmployee() : addEmployee())}>{isEdit ? "Update" : "Add"}</button>
             </form>
             <Table>
             <thead>
@@ -86,6 +108,12 @@ function EmployeeList(){
                     <button onClick = {() => {
                         deleteRow(emp.id)
                         }}>delete</button>
+                </td>
+                <td>
+                    <button onClick = {() => {
+                        setIsEdit(true);
+                        getEmployeeById(emp.id)
+                        }}>Edit</button>
                 </td>
                 </tr>
             ))}
