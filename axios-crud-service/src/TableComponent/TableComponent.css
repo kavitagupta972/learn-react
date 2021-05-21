@@ -1,0 +1,23 @@
+.data-table {
+
+    background-color:gainsboro;
+    border:2px solid brown;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.data-table tr, th, td {
+    border:2px solid brown;
+}
+
+.table-container {
+    text-align: center;
+    /* align-items: center; */
+}
+
+button {
+    background-color:darkturquoise;
+    color:red;
+    border-radius: 1px;
+    margin:2px;
+}
